@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Final</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif;
+      text-align: center;
+      
+    }
+
+    .w3-top {
+      background-color: rgb(8, 214, 241);
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
+        onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="./index.html" class="w3-bar-item w3-button">HOME</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="./api.html" class="w3-bar-item w3-button">API</a>
+      <a href="./java.html" class="w3-bar-item w3-button">JavaScript</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+    </div>
+  </div>
+
+  <!-- js -->
+  <div class="w3-content w3-padding" style="max-width:1564px">
+
+    <h1 style="margin: 50px 0;">The Document Object</h1>
+    <hr>
+
+    <h2>Just change A - Z</h2><br>
+    <p id="demo">Z</p>
+    <br>
+    <hr>
+
+    <h2>Click to change</h2>
+    <p id="demo2">Hi</p>
+    <button onclick="myFunction()">Click me</button><br>
+    <hr>
+
+    <h2>Calculate number</h2>
+    <input id="numb">
+    <button type="button" onclick="myFunction2()">Submit</button>
+    <p id="demo3"></p>
+    <br>
+    <hr>
+    
+    <div>
+      <h2>คำนวณคะแนนเกรด</h2>
+      <h4 id="number">คะแนนเกรดของคุณ : F</h4>
+      <button class="java-btn" onclick="number()">คำนวณ</button><br>
+    </div>
+    <br>
+    <hr>
+
+    <div>
+      <h2 class="mov">หาค่าอุณหภูมิ</h2>
+      <h4><span id="show1">Fahrenheit: 25°F, Celsius: -3.89°C</span></h4>
+      <button class="mou" onclick="fahrenheitToCelsius()" fdprocessedid="25h2qg">กดปุ่ม</button>
+    </div>
+    <br>
+    <hr>
+    <br><br>
+    <div style="max-width: 90%; ">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <br>
+    <br>
+
+    <hr>
+
+    <br>
+    <div style="max-width: 100%;">
+      <canvas id="Chart"></canvas>
+    </div>
+
+    <br>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+      <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+          class="w3-hover-text-green">Sirisophon Yootthaklang</a></p>
+    </footer>
+
+    <script>
+      // ฟังก์ชันคำนวณคะแนน //
+      function number() {
+        let number = prompt('What is your number');
+        let grade;
+
+        if (number > 80) {
+          grade = 'A';
+        } else if (number < 80 && number >= 70) {
+          grade = 'B';
+        } else if (number < 70 && number >= 60) {
+          grade = 'C';
+        } else if (number < 60 && number >= 50) {
+          grade = 'D';
+        } else {
+          grade = 'F';
+        }
+        document.getElementById('number').innerHTML = `คะแนนเกรดของคุณ : ${grade}`;
+      }
+    </script>
+
+    <script>
+      //หาค่าอุณหภูมิ
+      function fahrenheitToCelsius() {
+        let inputFahrenheit = prompt("Enter temperature in Fahrenheit:");
+        let celsiusValue = (parseFloat(inputFahrenheit) - 32) * (5 / 9);
+        document.getElementById(
+          "show1"
+        ).innerText = `Fahrenheit: ${inputFahrenheit}°F, Celsius: ${celsiusValue.toFixed(
+          2
+        )}°C`;
+      }
+
+      function calculateCircleCircumference(radius) {
+        return 2 * Math.PI * radius;
+      }
+
+      function calculateAndDisplayCircumference() {
+        let inputElement = document.getElementById("input");
+        let resultElement = document.getElementById("result");
+
+        let radius = parseFloat(inputElement.value);
+
+        if (!isNaN(radius)) {
+          let circumference = calculateCircleCircumference(radius);
+          resultElement.textContent = circumference.toFixed(2);
+        } else {
+          resultElement.textContent = "กรุณากรอกค่าที่ถูกต้อง";
+        }
+      }       
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const ctx = document.getElementById('myChart');
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange', 'black'],
+          datasets: [{
+            label: '# of Votes',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(255, 159, 64, 0.2)',
+              'rgba(255, 205, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(201, 203, 207, 0.2)'
+            ],
+            borderColor: [
+              'rgb(255, 99, 132)',
+              'rgb(255, 159, 64)',
+              'rgb(255, 205, 86)',
+              'rgb(75, 192, 192)',
+              'rgb(54, 162, 235)',
+              'rgb(153, 102, 255)',
+              'rgb(201, 203, 207)'
+            ],
+            borderWidth: 1
+
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+     
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch(
+          "https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-yearly-average-temperature.json"
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const countries = data.map((entry) => entry.country);
+            const temperatures = data.map((entry) => entry.temperature);
+
+            const cht = document.getElementById("Chart").getContext("2d");
+            new Chart(cht, {
+              type: "line",
+              data: {
+                labels: countries,
+                datasets: [
+                  {
+                    label: "Temperature (°C) In World",
+                    data: temperatures,
+                    backgroundColor: "rgba(55, 192, 12, 0.2)",
+                    borderColor: "rgba(55, 192, 12, 1)",
+                    borderWidth: 2,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+              },
+            });
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      });
+    </script>
+
+
+    <script>
+      //document.getElementById("demo").innerHTML = "Hello World";
+
+      function printAlphabets() {
+        // สร้างตัวแปรเพื่อเก็บตัวอักษร A-Z
+        const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // ใช้ forEach เพื่อวนลูปผ่านทุกตัวอักษร
+        alphabets.split('').forEach((alphabet, index) => {
+          // ใช้ setTimeout เพื่อกำหนดระยะเวลาการแสดงผล
+          setTimeout(() => {
+            document.getElementById("demo").innerHTML = alphabet;
+            console.log(alphabet);
+          }, index * 1000); // 1000 milliseconds = 1 วินาที
+        });
+      }
+      printAlphabets();
+
+      function myFunction() {
+        document.getElementById("demo2").innerHTML = "Hello World";
+      }
+
+      function myFunction2() {
+        // Get the value of the input field with id="numb"
+        let x = document.getElementById("numb").value;
+        // If x is Not a Number or less than one or greater than 10
+        let text;
+        if (isNaN(x) || x < 1 || x > 10) {
+          text = "Input not valid";
+        } else {
+          text = "Input OK";
+        }
+        document.getElementById("demo3").innerHTML = text;
+      }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

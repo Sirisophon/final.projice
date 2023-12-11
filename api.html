@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Final</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif;
+      text-align: center;
+    }
+
+    .w3-top {
+      background-color: rgb(159, 254, 224);
+      padding: 10px;
+    }
+
+    .java-body {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .java-btn {
+      padding: 10px 20px;
+      background-color: #be33f5;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+      margin: auto;
+    }
+
+    */ #resultContainer {
+      display: block;
+    }
+
+    /* form */
+    .java-h2 {
+      text-align: center;
+    }
+
+    .form-sheet {
+      text-align: center;
+    }
+
+    .form-sheet input,
+    .form-sheet button {
+      margin: 10px 0;
+    }
+
+    .java-btn {
+      color: #000000;
+      /* เปลี่ยนสีข้อความบนปุ่ม */
+      padding: 7px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .java-btn:hover {
+      background-color: rgb(238, 224, 255);
+      /* เปลี่ยนสีเมื่อโฮเวอร์ปุ่ม */
+    }
+
+    /* COIN API */
+    #pricesContainer {
+      text-align: center;
+
+    }
+
+    #prices {
+      /* margin: 0;
+      padding: 0; */
+      list-style: none;
+
+    }
+
+    #lastUpdateTime {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
+        onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="./index.html" class="w3-bar-item w3-button">HOME</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="./api.html" class="w3-bar-item w3-button">API</a>
+      <a href="./java.html" class="w3-bar-item w3-button">JavaScript</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+    </div>
+  </div>
+
+  <!-- random -->
+  <div id="menuDisplay" class="w3-content w3-padding w3-center box2" style="max-width:1564px">
+    <h2 style="color: blue;">Random Food</h2>
+    <p id="foodName"><b>Name : Noodle</b></p>
+    <p id="foodImage"><b>Image : </b><img src="https://source.unsplash.com/200x150/?noodle" alt="Noodle"></p>
+    <button onclick="generateRandomFood()" class="w3-button w3-orange w3-section">Clilck Random Food</button>
+  </div>
+
+
+
+  <!-- api -->
+  <section class="contact section" id="api">
+     
+    <div id="response-message"></div>
+    <h2 class="java-h2">Form </h2>
+    <div class="java-body">
+      <form class="form-sheet" method="POST"
+        action="https://script.google.com/macros/s/AKfycbxV5EUR2zVSsZpj-Rb1EZVElYZHh821fi3gfiRQV_ArT36XISgirSBr_lpp64VndlrQ/exec"
+        onsubmit="submitForm(event)">
+        <input name="Email" type="email" placeholder="Email" required="">
+        <input name="Name" type="text" placeholder="Name" required="">
+        <button class="java-btn" type="submit">Send</button>
+      </form>
+    </div>
+    <br>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSHbmYM4VeN4zsZFy9o7N4TCbAC1twHDLz7MT-C6gRB5FKDdt00jCuXMH23eA8kZ2sIGvA6SBus5Aho/pubhtml?widget=true&amp;headers=false"></iframe>
+    <div id="result"></div>
+    <br>
+
+    <!-- ราคา Crypto -->
+    <h2 class="java-h2">Rates for BTC</h2>
+    <div id="pricesContainer">
+      <div id="prices">
+        <ul>
+          <li>1INCH : 2.472224969097651390358</li>
+          <li>AAVE : 0.01008893260694112833</li>
+          <li>ABT : 7.3449504223283143685275</li>
+          <li>ACH : 45.1616763762814433553585</li>
+          <li>ACS : 334.313414124529878861012</li>
+          <li>ADA : 1.6992353440951572</li>
+          <li>AED : 3.6723717514166667000005</li>
+          <li>BTC : 0.0000227599358215</li>
+          <li>ETH : 0.0004249604786755</li>
+        </ul>
+      </div>
+      <div id="UpdateTime">
+        <p>Update Time : 14:48:25</p>
+      </div>
+    </div>
+    <br>
+
+
+    <!-- API -->
+    
+  </section>
+
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+        class="w3-hover-text-green">Sirisophon</a></p>
+  </footer>
+
+  <!-- random -->
+  <script>
+    const foods = [
+      { name: 'Pizza', image: 'https://source.unsplash.com/200x150/?pizza' },
+      { name: 'Burger', image: 'https://source.unsplash.com/200x150/?burger' },
+      { name: 'Sushi', image: 'https://source.unsplash.com/200x150/?sushi' },
+      { name: 'Pasta', image: 'https://source.unsplash.com/200x150/?pasta' },
+      { name: 'Salad', image: 'https://source.unsplash.com/200x150/?salad' },
+      { name: 'Fried rice', image: 'https://source.unsplash.com/200x150/?friedrice' },
+      { name: 'Noodle', image: 'https://source.unsplash.com/200x150/?noodle' },
+       
+
+    ];
+    function getRandomFood() {
+      const randomIndex = Math.floor(Math.random() * foods.length);
+      return foods[randomIndex];
+    }
+    function generateRandomFood() {
+      const randomFood = getRandomFood();
+      document.getElementById('foodName').textContent = `Name : ${randomFood.name}`;
+      document.getElementById('foodImage').innerHTML = `Image : <img src="${randomFood.image}" alt="${randomFood.name}">`;
+    }
+  </script>
+
+
+
+
+  <script>
+    // แยกฟังก์ชันที่เกี่ยวข้องกับ API Crypto //
+    // API CRYPTO //
+    function fetchPrices() {
+      var now = new Date();
+      var currentTime = now.toLocaleTimeString();
+
+      fetch('https://api.coinbase.com/v2/exchange-rates?currency=USDT')
+        .then(response => response.json())
+        .then(data => {
+          displayPrices(data);
+          displayLastUpdateTime(currentTime);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          alert('Error fetching data. Please try again.');
+        });
+    }
+
+    function displayPrices(data) {
+      var pricesDiv = document.getElementById('prices');
+      var rates = data.data.rates;
+
+      var currencies = ['1INCH', 'AAVE', 'ABT', 'ACH', 'ACS', 'ADA', 'AED', 'BTC', 'ETH'];
+      var pricesHtml = '<p>1 USDT can buy : </p><ul>';
+
+      currencies.forEach(currency => {
+        if (rates[currency]) {
+          pricesHtml += `<li>${currency} : ${rates[currency]}</li>`;
+        } else {
+          pricesHtml += `<li>${currency} : N/A</li>`;
+        }
+      });
+
+      pricesHtml += '</ul>';
+      pricesDiv.innerHTML = pricesHtml;
+    }
+
+    function displayLastUpdateTime(currentTime) {
+      var updateTimeDiv = document.getElementById('UpdateTime');
+      updateTimeDiv.innerHTML = `<p>Update Time : ${currentTime}</p>`;
+    }
+
+    fetchPrices();
+
+    setInterval(fetchPrices, 3000);
+
+  </script>
+
+</body>
+
+</html>
